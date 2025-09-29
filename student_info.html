@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Info</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+  flex-direction: column;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.info-container {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.info-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #ffda79;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+  font-weight: 700;
+}
+
+.info-container span {
+  display: inline-block;
+  min-width: 60px;
+  background: rgba(0,0,0,0.25);
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ffda79;
+  color: #fff;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-container span:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 18px #ffd54f;
+}
+
+/* Fixed button at bottom */
+.back-link {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ffda79;
+  text-decoration: none;
+  padding: 0.7rem 1.8rem;
+  border-radius: 30px;
+  box-shadow: 0 0 12px #ffda79;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.back-link:hover {
+  background: #ffda79;
+  color: #3b2f0b;
+  box-shadow: 0 0 25px #fca311;
+  transform: translateX(-50%) scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .info-container {
+    padding: 30px 20px;
+  }
+
+  .info-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .back-link {
+    font-size: 1rem;
+    padding: 0.6rem 1.4rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="info-container">
+  <h2>Your study hours: <span id="hours"></span></h2>
+  <h2>Your attendance: <span id="attendance"></span></h2>
+  <h2>Predicted marks: <span id="marks"></span></h2>
+</div>
+
+<a href="index.html" class="back-link">← Back to Home</a>
+
+<script>
+// Get query parameters
+const params = new URLSearchParams(window.location.search);
+document.getElementById('hours').innerText = params.get('hours');
+document.getElementById('attendance').innerText = params.get('attendance');
+document.getElementById('marks').innerText = params.get('marks');
+</script>
+
+</body>
+</html>
