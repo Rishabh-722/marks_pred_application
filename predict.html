@@ -132,7 +132,7 @@ document.getElementById('predictForm').addEventListener('submit', function(e){
     let attendance = document.getElementById('attendance').value;
 
     // Simple demo prediction formula
-    let marks = Math.min(100, hours * 3 + attendance * 0.5);
+    let marks = Math.min(100, hours * 10 + attendance * 0.2 + 10);
     
     // Redirect to static result page with query params
     window.location.href = `student_info.html?hours=${hours}&attendance=${attendance}&marks=${marks.toFixed(2)}`;
@@ -140,3 +140,4 @@ document.getElementById('predictForm').addEventListener('submit', function(e){
 </script>
 </body>
 </html>
+
